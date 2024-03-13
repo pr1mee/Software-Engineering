@@ -1,6 +1,6 @@
 ## GitHub-Seite der Veranstaltung Software Engineering 1 (Prof. Hackelöer)
 
-Auf dieser GitHub-Seite finden Sie die Quellcodes für die Übungen sowie die Beispielcodes aus den Vorlesungen. Im Verlauf der Vorlesung werden hier sukzessive weitere Inhalte eingestellt.
+Auf dieser GitLab-Seite finden Sie die Quellcodes für die Übungen sowie die Beispielcodes aus den Vorlesungen. Im Verlauf der Vorlesung werden hier sukzessive weitere Inhalte eingestellt.
 
 ### Hilfreiche Tools:
 
