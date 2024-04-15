@@ -1,3 +1,5 @@
+package org.hbrs.se1.ss24.uebung1.client;
+
 import org.hbrs.se1.ss24.uebung1.businesslogic.RomanNumberTransformer;
 import org.hbrs.se1.ss24.uebung1.businesslogic.TransformerFactory;
 

@@ -6,7 +6,11 @@ package org.hbrs.se1.ss24.uebung1.businesslogic;
  * @author Miguel Obrebski
  */
 public class TransformerFactory {
+    /**
+     * statische, fertige Transformer
+     */
     private static RomanNumberTransformer rntr = new RomanNumberTransformer();
+    private static GermanFormatNumberTransformer gfntr = new GermanFormatNumberTransformer();
 
     /**
      * 
@@ -16,7 +20,6 @@ public class TransformerFactory {
         return rntr;
     }
 
-    private static GermanFormatNumberTransformer gfntr = new GermanFormatNumberTransformer();
 
     /**
      * 
