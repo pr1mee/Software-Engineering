@@ -1,14 +1,18 @@
 package org.hbrs.se1.ss24.uebung1.businesslogic;
 
-public class RomanNumberTranformer extends AbstractNumberTransformer {
+/**
+ * Konvertiert int zu römischen String-Zahlen
+ * 
+ * @author Miguel Obrebski
+ */
+public class RomanNumberTransformer extends AbstractLimitedNumberTransformer {
 
     private static final String[] romanSymbols = { "I", "IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD", "D", "CM",
             "M" };
     private static final int[] romanValues = { 1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000 };
 
-    @Override
-    public String getTransformerType() {
-        return "Transformer für römische Zahlenformatierungen";
+    public RomanNumberTransformer() {
+        super(1, 3000);
     }
 
     @Override
@@ -22,5 +26,10 @@ public class RomanNumberTranformer extends AbstractNumberTransformer {
             }
         }
         return romanNumeral.toString();
+    }
+
+    @Override
+    public String getTransformerType() {
+        return "Transformer für römische Zahlenformatierungen";
     }
 }

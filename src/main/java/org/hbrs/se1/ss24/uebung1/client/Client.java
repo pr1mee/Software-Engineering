@@ -1,9 +1,14 @@
-import org.hbrs.se1.ss24.uebung1.businesslogic.RomanNumberTranformer;
+import org.hbrs.se1.ss24.uebung1.businesslogic.RomanNumberTransformer;
+import org.hbrs.se1.ss24.uebung1.businesslogic.TransformerFactory;
 
 public class Client {
-    private RomanNumberTranformer rtr;
+    private RomanNumberTransformer rtr;
 
-    public Client(RomanNumberTranformer rtr) {
+    public Client() {
+        this(TransformerFactory.getRomanNumberTransformer());
+    }
+
+    public Client(RomanNumberTransformer rtr) {
         this.rtr = rtr;
     }
 
