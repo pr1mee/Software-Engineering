@@ -15,7 +15,7 @@ class TestRomanNumberTransformer {
     private static final RomanNumberTransformer rntr = TransformerFactory.getRomanNumberTransformer();
     private static final String INVALID_STRING = RomanNumberTransformer.INVALID_STRING;
     @Test
-    void TestRomanNumbers() {
+    void testRomanNumbers() {
         
         testValidRangeEdgeValues();
         testValidTypicalValues();
@@ -24,13 +24,13 @@ class TestRomanNumberTransformer {
     }
 
     @Test
-    public void testValidRangeEdgeValues() {
+    void testValidRangeEdgeValues() {
         assertEquals("I", rntr.transformNumber(1));
         assertEquals("MMM", rntr.transformNumber(3000));
     }
 
     @Test
-    public void testValidTypicalValues() {
+    void testValidTypicalValues() {
         assertEquals("D", rntr.transformNumber(500));
         assertEquals("MD", rntr.transformNumber(1500));
         assertEquals("MMD", rntr.transformNumber(2500));
@@ -38,7 +38,7 @@ class TestRomanNumberTransformer {
     }
 
     @Test
-    public void testInvalidLowerValues() {
+    void testInvalidLowerValues() {
         // edge
         assertEquals(INVALID_STRING, rntr.transformNumber(0));
         // typisch
@@ -48,7 +48,7 @@ class TestRomanNumberTransformer {
     }
 
     @Test
-    public void testInvalidUpperValues() {
+    void testInvalidUpperValues() {
         //edge
         assertEquals(INVALID_STRING, rntr.transformNumber(3001));
         //typisch

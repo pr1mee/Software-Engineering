@@ -19,7 +19,7 @@ public abstract class AbstractLimitedNumberTransformer implements NumberTransfor
      * @param min Minimum des Limits (inklusive)
      * @param max Maximum des Limits (inklusive)
      */
-    public AbstractLimitedNumberTransformer(int min, int max) {
+    AbstractLimitedNumberTransformer(int min, int max) {
         this.min = min;
         this.max = max;
     }

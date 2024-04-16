@@ -8,11 +8,7 @@ import java.util.Locale;
  */
 public class GermanFormatNumberTransformer extends AbstractLimitedNumberTransformer {
     public GermanFormatNumberTransformer() {
-        this(1, 3000);
-    }
-
-    private GermanFormatNumberTransformer(int min, int max) {
-        super(min, max);
+        super(1, 3000);
     }
 
     @Override
