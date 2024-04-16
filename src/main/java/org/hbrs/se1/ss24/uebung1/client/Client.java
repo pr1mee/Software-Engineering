@@ -3,6 +3,12 @@ package org.hbrs.se1.ss24.uebung1.client;
 import org.hbrs.se1.ss24.uebung1.businesslogic.RomanNumberTransformer;
 import org.hbrs.se1.ss24.uebung1.businesslogic.TransformerFactory;
 
+/**
+ * Client für NumberTransformer
+ * 
+ * @author Max Grünewald
+ * @author Miguel Obrebski
+ */
 public class Client {
     private RomanNumberTransformer rtr;
 

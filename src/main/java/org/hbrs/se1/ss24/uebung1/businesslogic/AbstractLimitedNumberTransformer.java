@@ -5,11 +5,13 @@ package org.hbrs.se1.ss24.uebung1.businesslogic;
  * NumberTransformer Klassen
  * 
  * @author Miguel Obrebski
+ * @author Max Grünewald
  */
 public abstract class AbstractLimitedNumberTransformer implements NumberTransformer {
 
     private final int min;
     private final int max;
+    public static final String INVALID_STRING = "Die Zahl befindet sich ausserhalb des vorgegebenen Wertebereichs [1:3000]";
 
     /**
      * [min:max]
@@ -32,8 +34,8 @@ public abstract class AbstractLimitedNumberTransformer implements NumberTransfor
      */
     public final String transformNumber(int number) {
         return (number < min || number > max) // Wertebereich
-                ? "Die Zahl befindet sich ausserhalb des maximalen Wertebereichs [1:3000]"
-                : transform(number);
+                ? INVALID_STRING
+                : transform(number); //eigentliche Transformierung
     }
 
     /**
