@@ -23,7 +23,6 @@ class TestRomanNumberTransformer {
         assertEquals(INVALID_STRING, rntr.transformNumber(3001));
         assertEquals(INVALID_STRING, rntr.transformNumber(10000));
         assertEquals(INVALID_STRING, rntr.transformNumber(-Integer.MAX_VALUE));
-        testSeperateValues();
     }
 
 }
