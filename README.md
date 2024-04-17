@@ -3,7 +3,7 @@
 - Max Grünewald
 - Miguel Obrebski
 - Deniz Ari
-- 
+
 ## Anmerkungen zur Abgabe
 ### Aufgabe 1.1 a)
 Die Grenzwerte waren nicht ganz eindeutig ("zwischen"), daher haben wir uns für das logischste entschieden und die Zahlen inklusive 1 und 3000 umzuwandeln.

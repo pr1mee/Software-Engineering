@@ -2,7 +2,8 @@
 **Gruppe:**
 - Max Grünewald
 - Miguel Obrebski
-
+- Deniz Ari
+[Link zum GitHub-Repo](https://github.com/pr1mee/Software-Engineering)
 ## Anmerkungen zur Abgabe
 ### Aufgabe 1.1 a)
 Die Grenzwerte waren nicht ganz eindeutig ("zwischen"), daher haben wir uns für das logischste entschieden und die Zahlen inklusive 1 und 3000 umzuwandeln.
