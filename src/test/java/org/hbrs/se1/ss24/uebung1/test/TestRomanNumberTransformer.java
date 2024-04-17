@@ -17,45 +17,15 @@ class TestRomanNumberTransformer {
     @Test
     void testRomanNumbers() {
         
-        testValidRangeEdgeValues();
-        testValidTypicalValues();
-        testInvalidLowerValues();
-        testInvalidUpperValues();
-    }
-
-    @Test
-    void testValidRangeEdgeValues() {
-        assertEquals("I", rntr.transformNumber(1));
-        assertEquals("MMM", rntr.transformNumber(3000));
-    }
-
-    @Test
-    void testValidTypicalValues() {
-        assertEquals("D", rntr.transformNumber(500));
-        assertEquals("MD", rntr.transformNumber(1500));
-        assertEquals("MMD", rntr.transformNumber(2500));
-        assertEquals("MMCMXCIX", rntr.transformNumber(2999));
-    }
-
-    @Test
-    void testInvalidLowerValues() {
-        // edge
         assertEquals(INVALID_STRING, rntr.transformNumber(0));
-        // typisch
-        assertEquals(INVALID_STRING, rntr.transformNumber(-1));
-        assertEquals(INVALID_STRING, rntr.transformNumber(-100));
+        assertEquals("I", rntr.transformNumber(1));
+        assertEquals("MMCMXCIX", rntr.transformNumber(2999));
+        assertEquals(INVALID_STRING, rntr.transformNumber(3001));
+        assertEquals(INVALID_STRING, rntr.transformNumber(10000));
         assertEquals(INVALID_STRING, rntr.transformNumber(-Integer.MAX_VALUE));
+        testSeperateValues();
     }
 
-    @Test
-    void testInvalidUpperValues() {
-        //edge
-        assertEquals(INVALID_STRING, rntr.transformNumber(3001));
-        //typisch
-        assertEquals(INVALID_STRING, rntr.transformNumber(5000));
-        assertEquals(INVALID_STRING, rntr.transformNumber(10000));
-        assertEquals(INVALID_STRING, rntr.transformNumber(Integer.MAX_VALUE));
-    }
 }
 
 
