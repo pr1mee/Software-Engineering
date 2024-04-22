@@ -14,7 +14,7 @@ public class CardBox {
     }
     private boolean containsID(int id){
         for(PersonCard personCard : personCards){
-            if(personCard.getId() == id)
+            if(id == personCard.getId())
                 return true;
         }
         return false;
