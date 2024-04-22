@@ -9,6 +9,9 @@ public class CardBox {
             throw new CardBoxException(personCard.getId());
         personCards.add(personCard);
     }
+    public String deletePersonCard(int id) {
+        return "";
+    }
     private boolean containsID(int id){
         for(PersonCard personCard : personCards){
             if(personCard.getId() == id)
