@@ -18,6 +18,8 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class CardBoxTest {
     private CardBox cardBox;
+
+    @SuppressWarnings("FieldCanBeLocal")
     private PersonCard enduserCard1;
     private PersonCard enduserCard2;
     private PersonCard developerCard1;
