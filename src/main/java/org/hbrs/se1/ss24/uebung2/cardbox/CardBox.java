@@ -9,7 +9,7 @@ public class CardBox {
     private final Map<Integer, PersonCard> personCards;
 
     public CardBox() {
-        personCards = new TreeMap<>();
+        this(new TreeMap<>());
     }
 
     public CardBox(Map<Integer, PersonCard> map) {
@@ -22,7 +22,7 @@ public class CardBox {
             throw new CardBoxException(c.getId());
     }
 
-    public String deletePersonCard(int id) throws Exception {
+    public String deletePersonCard(int id) {
         if (personCards.remove(id) == null)
             return "Fehler: PersonCard ID " + id + " nicht gefunden";
         return "";
