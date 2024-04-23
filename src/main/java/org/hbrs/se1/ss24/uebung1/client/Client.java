@@ -5,12 +5,12 @@ import org.hbrs.se1.ss24.uebung1.businesslogic.TransformerFactory;
 
 /**
  * Client für NumberTransformer
- * 
+ *
  * @author Max Grünewald
  * @author Miguel Obrebski
  */
 public class Client {
-    private RomanNumberTransformer rtr;
+    private final RomanNumberTransformer rtr;
 
     public Client() {
         this(TransformerFactory.getRomanNumberTransformer());

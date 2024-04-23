@@ -1,9 +1,9 @@
 package org.hbrs.se1.ss24.uebung2.cards;
 
-public class PCard implements PersonCard{
+public class PCard implements PersonCard {
+    protected final int id;
     protected String firstname;
     protected String lastname;
-    protected final int id;
 
     public PCard(int id, String firstname, String lastname) {
         this.id = id;
@@ -25,7 +25,8 @@ public class PCard implements PersonCard{
     public int getId() {
         return id;
     }
-    public String toString(){
-        return "ID = "+id+", Vorname = "+firstname+", Nachname = "+lastname;
+
+    public String toString() {
+        return "ID = " + id + ", Vorname = " + firstname + ", Nachname = " + lastname;
     }
 }

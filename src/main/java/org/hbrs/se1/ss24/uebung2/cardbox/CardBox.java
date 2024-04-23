@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class CardBox {
-    private Map<Integer, PersonCard> personCards;
+    private final Map<Integer, PersonCard> personCards;
 
     public CardBox() {
         personCards = new TreeMap<>();
