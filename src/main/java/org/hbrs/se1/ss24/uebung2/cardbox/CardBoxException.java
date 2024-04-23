@@ -4,4 +4,5 @@ public class CardBoxException extends Exception {
     public CardBoxException(int ms) {
         super("Das CardBox-Objekt mit der ID " + ms + " ist bereits vorhanden.");
     }
+
 }

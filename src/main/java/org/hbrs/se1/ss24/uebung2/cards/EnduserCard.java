@@ -3,23 +3,9 @@ package org.hbrs.se1.ss24.uebung2.cards;
 public class EnduserCard extends PCard {
     private boolean isHungry;
 
-    public EnduserCard(int id, String firstname, String lastname) {
+    public EnduserCard(int id, String firstname, String lastname, boolean hungry) {
         super(id, firstname, lastname);
-    }
-
-    @Override
-    public String getFirstName() {
-        return "";
-    }
-
-    @Override
-    public String getLastName() {
-        return "";
-    }
-
-    @Override
-    public int getId() {
-        return 0;
+        isHungry = hungry;
     }
 
     public String toString() {

@@ -23,9 +23,8 @@ public class CardBox {
     }
 
     public String deletePersonCard(int id) {
-        if (personCards.remove(id) == null)
-            return "Fehler: PersonCard ID " + id + " nicht gefunden";
-        return "";
+        PersonCard p = personCards.remove(id);
+        return p == null ? "Fehler: PersonCard ID " + id + " nicht gefunden" : "Löschen von ID " + id + " Erfolgreich";
     }
 
     public void showContent() {
