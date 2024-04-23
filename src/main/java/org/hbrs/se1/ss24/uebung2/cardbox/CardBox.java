@@ -21,6 +21,7 @@ public class CardBox {
 
     /**
      * Überladener Konstruktor, der es ermöglicht, eine existierende Map von PersonCards zu verwenden.
+     *
      * @param map Die zu verwendende Map von PersonCards.
      */
     public CardBox(Map<Integer, PersonCard> map) {
@@ -29,6 +30,7 @@ public class CardBox {
 
     /**
      * Fügt eine neue PersonCard hinzu. Wenn eine Karte mit derselben ID bereits existiert, wird eine CardBoxException ausgelöst.
+     *
      * @param personCard Die hinzuzufügende PersonCard.
      * @throws CardBoxException wenn eine Karte mit derselben ID bereits existiert.
      */
@@ -40,6 +42,7 @@ public class CardBox {
 
     /**
      * Löscht eine PersonCard anhand ihrer ID.
+     *
      * @param id Die ID der zu löschenden PersonCard.
      * @return Eine Nachricht, die das Ergebnis des Löschvorgangs angibt.
      */
@@ -59,6 +62,7 @@ public class CardBox {
 
     /**
      * Gibt die Anzahl der PersonCards in der CardBox zurück.
+     *
      * @return Die Anzahl der PersonCards.
      */
     public int size() {

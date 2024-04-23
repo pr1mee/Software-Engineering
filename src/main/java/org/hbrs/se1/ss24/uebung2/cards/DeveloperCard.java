@@ -10,9 +10,10 @@ public class DeveloperCard extends PCard {
 
     /**
      * Konstruktor zur Erstellung einer neuen DeveloperCard.
-     * @param id Die eindeutige ID der Karte.
-     * @param firstname Der Vorname des Entwicklers.
-     * @param lastname Der Nachname des Entwicklers.
+     *
+     * @param id              Die eindeutige ID der Karte.
+     * @param firstname       Der Vorname des Entwicklers.
+     * @param lastname        Der Nachname des Entwicklers.
      * @param hasEnoughCoffee Status, ob der Entwickler genügend Kaffee zur Verfügung hat.
      */
     public DeveloperCard(int id, String firstname, String lastname, boolean hasEnoughCoffee) {
@@ -24,6 +25,7 @@ public class DeveloperCard extends PCard {
      * Gibt eine String-Darstellung der DeveloperCard zurück.
      * Diese Methode erweitert die String-Darstellung der Superklasse um die Information,
      * ob genügend Kaffee vorhanden ist.
+     *
      * @return Eine String-Repräsentation dieser DeveloperCard.
      */
     @Override

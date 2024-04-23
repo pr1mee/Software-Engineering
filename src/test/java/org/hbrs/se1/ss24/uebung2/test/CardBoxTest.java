@@ -11,7 +11,8 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Testklasse für die CardBox, die verschiedene Szenarien für das Hinzufügen, Löschen und Anzeigen von PersonCards testet.

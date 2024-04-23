@@ -11,9 +11,10 @@ public class PCard implements PersonCard {
 
     /**
      * Konstruktor für eine neue PCard.
-     * @param id Die eindeutige ID der Person.
+     *
+     * @param id        Die eindeutige ID der Person.
      * @param firstname Der Vorname der Person.
-     * @param lastname Der Nachname der Person.
+     * @param lastname  Der Nachname der Person.
      */
     public PCard(int id, String firstname, String lastname) {
         this.id = id;
@@ -23,6 +24,7 @@ public class PCard implements PersonCard {
 
     /**
      * Gibt den Vornamen der Person zurück.
+     *
      * @return Der Vorname der Person.
      */
     @Override
@@ -32,6 +34,7 @@ public class PCard implements PersonCard {
 
     /**
      * Gibt den Nachnamen der Person zurück.
+     *
      * @return Der Nachname der Person.
      */
     @Override
@@ -41,6 +44,7 @@ public class PCard implements PersonCard {
 
     /**
      * Gibt die ID der Person zurück.
+     *
      * @return Die eindeutige ID der Person.
      */
     @Override
@@ -50,6 +54,7 @@ public class PCard implements PersonCard {
 
     /**
      * Gibt eine String-Repräsentation der PCard zurück, die ID, Vorname und Nachname enthält.
+     *
      * @return Eine String-Repräsentation der PCard.
      */
     public String toString() {
