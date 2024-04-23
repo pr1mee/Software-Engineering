@@ -2,16 +2,18 @@ package org.hbrs.se1.ss24.uebung2.cardbox;
 
 import org.hbrs.se1.ss24.uebung2.cards.PersonCard;
 
-import java.util.Collection;
-import java.util.HashMap;
 import java.util.Map;
-import java.util.function.Predicate;
+import java.util.TreeMap;
 
 public class CardBox {
     private Map<Integer, PersonCard> personCards;
 
     public CardBox() {
-        personCards = new HashMap<>();
+        personCards = new TreeMap<>();
+    }
+
+    public CardBox(Map<Integer, PersonCard> map) {
+        personCards = map;
     }
 
     public void addPersonCard(PersonCard personCard) throws CardBoxException {
@@ -30,5 +32,9 @@ public class CardBox {
         for (PersonCard personCard : personCards.values()) {
             System.out.println(personCard.toString());
         }
+    }
+
+    public int size() {
+        return personCards.size();
     }
 }
