@@ -1,8 +1,10 @@
 package org.hbrs.se1.ss24.uebung1.businesslogic;
 
 import java.util.Locale;
+
 /**
  * GermanFormatNumberTransformer transformiert Integer zu formatierten Strings (9.292.345.123)
+ *
  * @author Max Grünewald
  * @author Miguel Obrebski
  */
