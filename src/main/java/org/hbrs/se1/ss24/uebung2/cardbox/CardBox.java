@@ -2,6 +2,9 @@ package org.hbrs.se1.ss24.uebung2.cardbox;
 
 import org.hbrs.se1.ss24.uebung2.cards.PersonCard;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -11,11 +14,12 @@ import java.util.TreeMap;
  */
 public class CardBox {
     private final Map<Integer, PersonCard> personCards;
+    private static CardBox instance = new CardBox();
 
     /**
      * Konstruktor, der eine leere TreeMap für PersonCards initialisiert.
      */
-    public CardBox() {
+    private CardBox() {
         this(new TreeMap<>());
     }
 
@@ -24,7 +28,7 @@ public class CardBox {
      *
      * @param map Die zu verwendende Map von PersonCards.
      */
-    public CardBox(Map<Integer, PersonCard> map) {
+    private CardBox(Map<Integer, PersonCard> map) {
         personCards = map;
     }
 
@@ -67,5 +71,28 @@ public class CardBox {
      */
     public int size() {
         return personCards.size();
+    }
+
+    public static CardBox getInstance() {
+        return instance;
+    }
+
+    public void save() throws CardBoxStorageException {
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("cards.dat"))) {
+            out.writeObject(personCards);
+        } catch (IOException e) {
+            throw new CardBoxStorageException(e.getMessage());
+        }
+    }
+
+    public void load() throws CardBoxStorageException {
+        try (ObjectInputStream out = new ObjectOutputStream(new FileOutputStream("cards.dat"))) {
+            out.writeObject(personCards);
+        } catch (IOException e) {
+            throw new CardBoxStorageException(e.getMessage());
+        }
+    }
+
+    private class CardBoxStorageException extends Exception {
     }
 }
