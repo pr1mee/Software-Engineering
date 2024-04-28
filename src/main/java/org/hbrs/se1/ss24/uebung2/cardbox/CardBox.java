@@ -15,8 +15,8 @@ import java.util.List;
  * Sie verwendet eine TreeMap, um die PersonCards nach ihrer ID zu speichern und zu organisieren.
  */
 public class CardBox {
-    private final List<PersonCard> personCards;
     private static CardBox instance = new CardBox();
+    private final List<PersonCard> personCards;
 
     /**
      * Konstruktor, der eine leere TreeMap für PersonCards initialisiert.
@@ -32,6 +32,10 @@ public class CardBox {
      */
     private CardBox(List<PersonCard> l) {
         personCards = l;
+    }
+
+    public static CardBox getInstance() {
+        return instance;
     }
 
     /**
@@ -67,7 +71,6 @@ public class CardBox {
         return p == null ? "Fehler: PersonCard ID " + id + " nicht gefunden" : "Löschen von ID " + id + " Erfolgreich";
     }
 
-
     /**
      * Gibt die Anzahl der PersonCards in der CardBox zurück.
      *
@@ -77,10 +80,11 @@ public class CardBox {
         return personCards.size();
     }
 
-    public static CardBox getInstance() {
-        return instance;
-    }
-
+    /**
+     * Speichert die CardBox
+     *
+     * @throws CardBoxStorageException Falls was schiefgeht :)
+     */
     public void save() throws CardBoxStorageException {
         try (ObjectOutputStream out = new ObjectOutputStream(Files.newOutputStream(Paths.get("cardBox.dat")))) {
             out.writeObject(getInstance());
@@ -89,6 +93,11 @@ public class CardBox {
         }
     }
 
+    /**
+     * Lädt die durch save() gespeicherte Liste
+     *
+     * @throws CardBoxStorageException Wenn was beim Laden schiefgeht
+     */
     public void load() throws CardBoxStorageException {
         try (ObjectInputStream in = new ObjectInputStream(Files.newInputStream(Paths.get("cardBox.dat")))) {
             Object o = in.readObject();
@@ -110,18 +119,19 @@ public class CardBox {
             super(message);
         }
     }
-}
 
-class PersonCardView {
 
-    /**
-     * Zeigt den Inhalt der CardBox auf der Konsole an. Jede PersonCard wird durch ihren eigenen toString-Aufruf dargestellt.
-     *
-     * @param personCards Die Liste mit den Karten.
-     */
-    public void showContent(List<PersonCard> personCards) {
-        for (PersonCard personCard : personCards) {
-            System.out.println(personCard.toString());
+    public static class PersonCardView {
+
+        /**
+         * Zeigt den Inhalt der CardBox auf der Konsole an. Jede PersonCard wird durch ihren eigenen toString-Aufruf dargestellt.
+         *
+         * @param personCards Die Liste mit den Karten.
+         */
+        public static void showContent(List<PersonCard> personCards) {
+            for (PersonCard personCard : personCards) {
+                System.out.println(personCard.toString());
+            }
         }
     }
 }

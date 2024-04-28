@@ -1,7 +1,10 @@
 package org.hbrs.se1.ss24.uebung2.test;
 
-import org.hbrs.se1.ss24.uebung2.cardbox.*;
-import org.hbrs.se1.ss24.uebung2.cards.*;
+import org.hbrs.se1.ss24.uebung2.cardbox.CardBox;
+import org.hbrs.se1.ss24.uebung2.cardbox.CardBoxException;
+import org.hbrs.se1.ss24.uebung2.cards.DeveloperCard;
+import org.hbrs.se1.ss24.uebung2.cards.EnduserCard;
+import org.hbrs.se1.ss24.uebung2.cards.PersonCard;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -33,7 +36,8 @@ public class CardBoxTest {
         enduserCard2 = new EnduserCard(3, "Julia", "Schmidt", true);
         developerCard1 = new DeveloperCard(2, "Erika", "Musterfrau", true);
         developerCard2 = new DeveloperCard(4, "Tom", "Schneider", false);
-        // Füge die ersten zwei Karten direkt hinzu, um einige Tests zu vereinfachen
+
+        //Füge die ersten zwei Karten direkt hinzu, um einige Tests zu vereinfachen
         cardBox.addPersonCard(enduserCard1);
         cardBox.addPersonCard(developerCard1);
     }
@@ -95,7 +99,7 @@ public class CardBoxTest {
 
         cardBox.addPersonCard(enduserCard2);
         cardBox.addPersonCard(developerCard2);
-        //cardBox.showContent();
+        CardBox.PersonCardView.showContent(cardBox.getCurrentList());
         String capturedOutput = outputStream.toString().trim();
         String expectedOutput = "ID = 1, Vorname = Max, Nachname = Mustermann, isHungry = false\r\n" +
                 "ID = 2, Vorname = Erika, Nachname = Musterfrau, hasEnoughCoffee = true\r\n" +
