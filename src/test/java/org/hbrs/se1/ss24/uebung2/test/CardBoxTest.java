@@ -28,7 +28,7 @@ public class CardBoxTest {
      */
     @BeforeEach
     void setUp() throws CardBoxException {
-        cardBox = new CardBox();
+        cardBox = CardBox.getInstance();
         enduserCard1 = new EnduserCard(1, "Max", "Mustermann", false);
         enduserCard2 = new EnduserCard(3, "Julia", "Schmidt", true);
         developerCard1 = new DeveloperCard(2, "Erika", "Musterfrau", true);

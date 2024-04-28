@@ -2,9 +2,9 @@ package org.hbrs.se1.ss24.uebung2.cardbox;
 
 import org.hbrs.se1.ss24.uebung2.cards.PersonCard;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -78,21 +78,27 @@ public class CardBox {
     }
 
     public void save() throws CardBoxStorageException {
-        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("cards.dat"))) {
-            out.writeObject(personCards);
+        try (ObjectOutputStream out = new ObjectOutputStream(Files.newOutputStream(Paths.get("cardBox.dat")))) {
+            out.writeObject(getInstance());
         } catch (IOException e) {
             throw new CardBoxStorageException(e.getMessage());
         }
     }
 
     public void load() throws CardBoxStorageException {
-        try (ObjectInputStream out = new ObjectOutputStream(new FileOutputStream("cards.dat"))) {
-            out.writeObject(personCards);
-        } catch (IOException e) {
+        try (ObjectInputStream in = new ObjectInputStream(Files.newInputStream(Paths.get("cardBox.dat")))) {
+            Object o = in.readObject();
+            if (o instanceof CardBox) {
+                instance = (CardBox) o;
+            }
+        } catch (ClassNotFoundException | IOException e) {
             throw new CardBoxStorageException(e.getMessage());
         }
     }
 
-    private class CardBoxStorageException extends Exception {
+    public static class CardBoxStorageException extends Exception {
+        public CardBoxStorageException(String message) {
+            super(message);
+        }
     }
 }
