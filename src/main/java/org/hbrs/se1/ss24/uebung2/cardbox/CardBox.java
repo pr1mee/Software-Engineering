@@ -22,7 +22,7 @@ public class CardBox {
      * Konstruktor, der eine leere TreeMap für PersonCards initialisiert.
      */
     private CardBox() {
-        this(new ArrayList());
+        this(new ArrayList<>());
     }
 
     /**
@@ -30,7 +30,7 @@ public class CardBox {
      *
      * @param l Die zu verwendende List von PersonCards.
      */
-    private CardBox(List l) {
+    private CardBox(List<PersonCard> l) {
         personCards = l;
     }
 
@@ -100,12 +100,15 @@ public class CardBox {
         }
     }
 
+    public List<PersonCard> getCurrentList() {
 
-}
+        return personCards;
+    }
 
-class CardBoxStorageException extends Exception {
-    public CardBoxStorageException(String message) {
-        super(message);
+    public static class CardBoxStorageException extends Exception {
+        public CardBoxStorageException(String message) {
+            super(message);
+        }
     }
 }
 
