@@ -2,34 +2,36 @@ package org.hbrs.se1.ss24.uebung2.cardbox;
 
 import org.hbrs.se1.ss24.uebung2.cards.PersonCard;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Die Klasse CardBox dient zur Verwaltung von PersonCards.
  * Sie verwendet eine TreeMap, um die PersonCards nach ihrer ID zu speichern und zu organisieren.
  */
 public class CardBox {
-    private final Map<Integer, PersonCard> personCards;
+    private final List<PersonCard> personCards;
     private static CardBox instance = new CardBox();
 
     /**
      * Konstruktor, der eine leere TreeMap für PersonCards initialisiert.
      */
     private CardBox() {
-        this(new TreeMap<>());
+        this(new ArrayList());
     }
 
     /**
-     * Überladener Konstruktor, der es ermöglicht, eine existierende Map von PersonCards zu verwenden.
+     * Überladener Konstruktor, der es ermöglicht, eine existierende List von PersonCards zu verwenden.
      *
-     * @param map Die zu verwendende Map von PersonCards.
+     * @param l Die zu verwendende List von PersonCards.
      */
-    private CardBox(Map<Integer, PersonCard> map) {
-        personCards = map;
+    private CardBox(List l) {
+        personCards = l;
     }
 
     /**
@@ -39,9 +41,19 @@ public class CardBox {
      * @throws CardBoxException wenn eine Karte mit derselben ID bereits existiert.
      */
     public void addPersonCard(PersonCard personCard) throws CardBoxException {
-        PersonCard c = personCards.put(personCard.getId(), personCard);
-        if (c != null)
-            throw new CardBoxException(c.getId());
+        if (contains(personCard.getId())) {
+            throw new CardBoxException(personCard.getId());
+        }
+        personCards.add(personCard);
+    }
+
+    private boolean contains(int id) {
+        for (PersonCard p : personCards) {
+            if (p.getId() == id) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -55,14 +67,6 @@ public class CardBox {
         return p == null ? "Fehler: PersonCard ID " + id + " nicht gefunden" : "Löschen von ID " + id + " Erfolgreich";
     }
 
-    /**
-     * Zeigt den Inhalt der CardBox auf der Konsole an. Jede PersonCard wird durch ihren eigenen toString-Aufruf dargestellt.
-     */
-    public void showContent() {
-        for (PersonCard personCard : personCards.values()) {
-            System.out.println(personCard.toString());
-        }
-    }
 
     /**
      * Gibt die Anzahl der PersonCards in der CardBox zurück.
@@ -96,9 +100,25 @@ public class CardBox {
         }
     }
 
-    public static class CardBoxStorageException extends Exception {
-        public CardBoxStorageException(String message) {
-            super(message);
+
+}
+
+class CardBoxStorageException extends Exception {
+    public CardBoxStorageException(String message) {
+        super(message);
+    }
+}
+
+class PersonCardView {
+
+    /**
+     * Zeigt den Inhalt der CardBox auf der Konsole an. Jede PersonCard wird durch ihren eigenen toString-Aufruf dargestellt.
+     *
+     * @param personCards Die Liste mit den Karten.
+     */
+    public void showContent(List<PersonCard> personCards) {
+        for (PersonCard personCard : personCards) {
+            System.out.println(personCard.toString());
         }
     }
 }

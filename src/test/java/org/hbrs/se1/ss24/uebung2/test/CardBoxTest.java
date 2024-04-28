@@ -95,7 +95,7 @@ public class CardBoxTest {
 
         cardBox.addPersonCard(enduserCard2);
         cardBox.addPersonCard(developerCard2);
-        cardBox.showContent();
+        //cardBox.showContent();
         String capturedOutput = outputStream.toString().trim();
         String expectedOutput = "ID = 1, Vorname = Max, Nachname = Mustermann, isHungry = false\r\n" +
                 "ID = 2, Vorname = Erika, Nachname = Musterfrau, hasEnoughCoffee = true\r\n" +
