@@ -28,12 +28,13 @@ public class CardBoxTest {
      */
     @BeforeEach
     void setUp() throws CardBoxException {
-        cardBox = new CardBox();
+        cardBox = CardBox.getInstance();
         enduserCard1 = new EnduserCard(1, "Max", "Mustermann", false);
         enduserCard2 = new EnduserCard(3, "Julia", "Schmidt", true);
         developerCard1 = new DeveloperCard(2, "Erika", "Musterfrau", true);
         developerCard2 = new DeveloperCard(4, "Tom", "Schneider", false);
-        // Füge die ersten zwei Karten direkt hinzu, um einige Tests zu vereinfachen
+
+        //Füge die ersten zwei Karten direkt hinzu, um einige Tests zu vereinfachen
         cardBox.addPersonCard(enduserCard1);
         cardBox.addPersonCard(developerCard1);
     }
@@ -95,7 +96,7 @@ public class CardBoxTest {
 
         cardBox.addPersonCard(enduserCard2);
         cardBox.addPersonCard(developerCard2);
-        cardBox.showContent();
+        CardBox.PersonCardView.showContent(cardBox.getCurrentList());
         String capturedOutput = outputStream.toString().trim();
         String expectedOutput = "ID = 1, Vorname = Max, Nachname = Mustermann, isHungry = false\r\n" +
                 "ID = 2, Vorname = Erika, Nachname = Musterfrau, hasEnoughCoffee = true\r\n" +

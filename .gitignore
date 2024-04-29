@@ -1,5 +1,5 @@
 .vscode
-src/test/java/org/hbrs/se1/ss24/uebung1/test/.~lock.TestCase.xlsx#
 target
 bin
 .idea
+submission/*.zip
