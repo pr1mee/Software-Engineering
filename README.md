@@ -8,7 +8,7 @@ Miguel Obrebski (mobreb2s)
 https://github.com/pr1mee/Software-Engineering
 
 In [exercises](exercises) befinden sich die Aufgabenstellungen.
-Unter [src](src)finden Sie den Quellcode. Unter [submission](submission) zusätzliche Abgaben wie UML-Diagramme.
+Unter [src](src) finden Sie den Quellcode. Unter [submission](submission) zusätzliche Abgaben wie UML-Diagramme.
 --------------------
 # Übung 1
 ## Anmerkungen
