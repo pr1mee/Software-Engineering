@@ -1,13 +1,6 @@
-# Übung 2
-**Gruppe:**\
-Jonas Bambeck\
-Max Grünewald\
-Miguel Obrebski
+# Software Engineering
+Die Übungen sind in den Packages.
 
-**Repository:**\
-https://github.com/pr1mee/Software-Engineering
+Neue Übungen werden normalerweise in neuen Branches bearbeitet und zur Verfügung gestellt.
 
---------------------------
-## Anmerkungen
-### Aufgabe 2
-org.hbrs.se1.ss24.uebung2.test.CardBoxTest.testShowContent() nutzt einen Output-Stream-Interceptor.
+---
