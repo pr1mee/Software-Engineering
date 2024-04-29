@@ -1,9 +1,8 @@
 # Software Engineering
-**Gruppe** (ab Übung 2)\
+**Gruppe** (ab Übung 2):\
 Jonas Bambeck\
 Max Grünewald\
-Miguel Obrebski\
-
+Miguel Obrebski
 
 **Repository:**\
 https://github.com/pr1mee/Software-Engineering
