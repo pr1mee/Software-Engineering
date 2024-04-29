@@ -91,9 +91,12 @@ Die Klasse Client hat keine Ausgabewerte und wodurch Repräsentanten nicht einfa
 [Diagramm als PDF](submission/uebung2/SE1_Ubungsblatt2_Aufgabe1.pdf)
 
 ## Aufgabe 2
-**Anmerkung:**\
+**Anmerkung:** \
+
 [CardBoxTest.testShowContent()](src/test/java/org/hbrs/se1/ss24/uebung2/test/CardBoxTest.java) nutzt einen Output-Stream-Interceptor.
+
 --------------------------
+
 # Übung 3
 ## Aufgabe 2
 ### [Change Request 1]()#TODO Link einfügen
