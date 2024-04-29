@@ -1,10 +1,7 @@
 package org.hbrs.se1.ss24.uebung2.test;
 
-import org.hbrs.se1.ss24.uebung2.cardbox.CardBox;
-import org.hbrs.se1.ss24.uebung2.cardbox.CardBoxException;
-import org.hbrs.se1.ss24.uebung2.cards.DeveloperCard;
-import org.hbrs.se1.ss24.uebung2.cards.EnduserCard;
-import org.hbrs.se1.ss24.uebung2.cards.PersonCard;
+import org.hbrs.se1.ss24.uebung2.cardbox.*;
+import org.hbrs.se1.ss24.uebung2.cards.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
