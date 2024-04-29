@@ -5,7 +5,7 @@ Max Grünewald (mgruen2s)\
 Miguel Obrebski (mobreb2s)
 
 **Link zum GitHub Repository:**\
-https://github.com/pr1mee/Software-Engineerings
+https://github.com/pr1mee/Software-Engineerings \
 In [exercises](exercises) befinden sich die Aufgabenstellungen.
 Unter [src](src) finden Sie den Quellcode. Unter [submission](submission) zusätzliche Abgaben wie UML-Diagramme.
 
