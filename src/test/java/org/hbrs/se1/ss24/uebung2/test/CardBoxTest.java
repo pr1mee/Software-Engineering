@@ -120,4 +120,51 @@ public class CardBoxTest {
         cardBox.deletePersonCard(1);
         assertEquals(3, cardBox.size());
     }
+
+
+    @Test
+    public void testSaveSuccess() throws IOException, CardBoxStorageException {
+        CardBox cardBox = mock(CardBox.class);
+        when(cardBox.getInstance()).thenReturn(cardBox);
+
+        Path path = Paths.get("cardBox.dat");
+        Files.deleteIfExists(path);
+
+        cardBox.save();
+
+        assertTrue(Files.exists(path));
+    }
+
+    @Test(expected = CardBoxStorageException.class)
+    public void testSaveFailure() throws IOException, CardBoxStorageException {
+        CardBox cardBox = mock(CardBox.class);
+        when(cardBox.getInstance()).thenReturn(cardBox);
+
+        doThrow(new IOException("Disk error")).when(Files.newOutputStream(Paths.get("cardBox.dat")));
+
+        cardBox.save();
+    }
+
+    @Test
+    public void testLoadSuccess() throws IOException, ClassNotFoundException, CardBoxStorageException {
+        String testData = "Test data";
+        Path path = Paths.get("cardBox.dat");
+
+        try (ObjectOutputStream out = new ObjectOutputStream(Files.newOutputStream(path))) {
+            out.writeObject(testData);
+        }
+
+        CardBox cardBox = new CardBox();
+        cardBox.load();
+
+        assertEquals(testData, cardBox.getCurrentList().get(0));
+    }
+
+    @Test(expected = CardBoxStorageException.class)
+    public void testLoadFailure() throws IOException, CardBoxStorageException {
+        doThrow(new IOException("File not found")).when(Files.newInputStream(Paths.get("cardBox.dat")));
+
+        CardBox cardBox = new CardBox();
+        cardBox.load();
+    }
 }
