@@ -12,8 +12,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Console {
-    private static final Client client = new Client();
-    private static final HashSet<Task> tasks = new HashSet<>();
+    static final Client client = new Client();
+    static final HashSet<Task> tasks = new HashSet<>();
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -36,7 +36,7 @@ public class Console {
         scanner.close();
     }
 
-    private static String[] parseInput(String input) {
+    static String[] parseInput(String input) {
         // Liste, um die Argumente zu speichern
         ArrayList<String> arguments = new ArrayList<>();
 
@@ -59,7 +59,7 @@ public class Console {
         return arguments.toArray(new String[0]);
     }
 
-    private static void cmd(String[] c) {
+    static void cmd(String[] c) {
         switch (c[0]) {
             case "story":
                 if (c.length == 3) story(c[1], c[2]);
@@ -130,13 +130,13 @@ public class Console {
 
     }
 
-    private static void tasks() {
+    static void tasks() {
         for (Task task : tasks) {
             System.out.println(task);
         }
     }
 
-    private static void stories() {
+    static void stories() {
         System.out.println("Stories:");
         System.out.println(client.storiesToString());
     }

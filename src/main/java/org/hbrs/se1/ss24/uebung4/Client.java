@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Client {
-    private Set<UserStory> userStories;
+    Set<UserStory> userStories;
     private static final String DEF_FILE = "stories.ser";
 
     public Client() {
@@ -53,6 +53,10 @@ public class Client {
             }
         }
         throw new IOException("No story with ID " + storyID + " found");
+    }
+
+    public Set<UserStory> getStories() {
+        return userStories;
     }
 
     public String storiesToString() {
