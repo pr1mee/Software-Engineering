@@ -1,10 +1,12 @@
 package org.hbrs.se1.ss24.uebung2.cards;
 
+import java.io.Serializable;
+
 /**
  * Die Klasse PCard implementiert das PersonCard-Interface und stellt eine Personenkarte dar.
  * Jede Personenkarte hat eine eindeutige ID sowie Vornamen und Nachnamen.
  */
-public class PCard implements PersonCard {
+public class PCard implements PersonCard, Serializable {
     protected final int id;          // Eindeutige ID der Person
     protected String firstname;      // Vorname der Person
     protected String lastname;       // Nachname der Person

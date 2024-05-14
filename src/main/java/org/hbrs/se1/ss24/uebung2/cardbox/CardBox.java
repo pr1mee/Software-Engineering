@@ -2,10 +2,9 @@ package org.hbrs.se1.ss24.uebung2.cardbox;
 
 import org.hbrs.se1.ss24.uebung2.cards.PersonCard;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,9 +13,24 @@ import java.util.List;
  * Die Klasse CardBox dient zur Verwaltung von PersonCards.
  * Sie verwendet eine TreeMap, um die PersonCards nach ihrer ID zu speichern und zu organisieren.
  */
-public class CardBox {
-    private static CardBox instance = new CardBox();
-    private final List<PersonCard> personCards;
+public class CardBox implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
+    public static final Path PATH = Paths.get("cardbox.dat");
+    private static CardBox instance;
+    private List<PersonCard> personCards;
+
+    static {
+        resetInstance();
+    }
+
+    public static void resetInstance() {
+        instance = new CardBox();
+    }
+
+    public static CardBox getInstance() {
+        return instance;
+    }
 
     /**
      * Konstruktor, der eine leere TreeMap für PersonCards initialisiert.
@@ -34,9 +48,6 @@ public class CardBox {
         personCards = l;
     }
 
-    public static CardBox getInstance() {
-        return instance;
-    }
 
     /**
      * Fügt eine neue PersonCard hinzu. Wenn eine Karte mit derselben ID bereits existiert, wird eine CardBoxException ausgelöst.
@@ -45,7 +56,7 @@ public class CardBox {
      * @throws CardBoxException wenn eine Karte mit derselben ID bereits existiert.
      */
     public void addPersonCard(PersonCard personCard) throws CardBoxException {
-        if (contains(personCard.getId())) {
+        if (this.contains(personCard.getId())) {
             throw new CardBoxException(personCard.getId());
         }
         personCards.add(personCard);
@@ -67,8 +78,13 @@ public class CardBox {
      * @return Eine Nachricht, die das Ergebnis des Löschvorgangs angibt.
      */
     public String deletePersonCard(int id) {
-        PersonCard p = personCards.remove(id);
-        return p == null ? "Fehler: PersonCard ID " + id + " nicht gefunden" : "Löschen von ID " + id + " Erfolgreich";
+        for (PersonCard p : personCards) {
+            if (p.getId() == id) {
+                personCards.remove(p);
+                return "ID " + id + " gelöscht";
+            }
+        }
+        return "ID " + id + " nicht gefunden";
     }
 
     /**
@@ -85,12 +101,17 @@ public class CardBox {
      *
      * @throws CardBoxStorageException Falls was schiefgeht :)
      */
-    public void save() throws CardBoxStorageException {
-        try (ObjectOutputStream out = new ObjectOutputStream(Files.newOutputStream(Paths.get("cardBox.dat")))) {
-            out.writeObject(getInstance());
+    public void save() throws IOException {
+        ObjectOutputStream out = new ObjectOutputStream(Files.newOutputStream(PATH));
+
+        out.writeObject(personCards);
+        out.close();
+
+/*
+        try {
         } catch (IOException e) {
             throw new CardBoxStorageException(e.getMessage());
-        }
+        }*/
     }
 
     /**
@@ -99,10 +120,12 @@ public class CardBox {
      * @throws CardBoxStorageException Wenn was beim Laden schiefgeht
      */
     public void load() throws CardBoxStorageException {
-        try (ObjectInputStream in = new ObjectInputStream(Files.newInputStream(Paths.get("cardBox.dat")))) {
+        try (ObjectInputStream in = new ObjectInputStream(Files.newInputStream(PATH))) {
             Object o = in.readObject();
-            if (o instanceof CardBox) {
-                instance = (CardBox) o;
+            in.close();
+            if (o instanceof List<?>) {
+                //noinspection unchecked
+                this.personCards = ((List<PersonCard>) o);
             }
         } catch (ClassNotFoundException | IOException e) {
             throw new CardBoxStorageException(e.getMessage());
@@ -112,12 +135,6 @@ public class CardBox {
     public List<PersonCard> getCurrentList() {
 
         return personCards;
-    }
-
-    public static class CardBoxStorageException extends Exception {
-        public CardBoxStorageException(String message) {
-            super(message);
-        }
     }
 
 
@@ -134,4 +151,5 @@ public class CardBox {
             }
         }
     }
+
 }
