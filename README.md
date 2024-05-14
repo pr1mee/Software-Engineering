@@ -6,12 +6,29 @@ Miguel Obrebski (mobreb2s)
 
 **Link zum GitHub Repository:**\
 https://github.com/pr1mee/Software-Engineerings \
-In [exercises](exercises) befinden sich die Aufgabenstellungen.
+In [exerc](exerc) befinden sich die Aufgabenstellungen.
 Unter [src](src) finden Sie den Quellcode. Unter [submission](submission) zusätzliche Abgaben wie UML-Diagramme.
+--------------------------
+# Übung 4
+## Aufgabe 1
+[Link zur PDF](submission/uebung4/uebung4a1.pdf)
+--------------------------
 
+# Übung 3
+## Aufgabe 2
+### [Change Request 1]()#TODO Link einfügen
+Wir verwendeten das Singleton Design Pattern (Creational Pattern).
+---------------
+# Übung 2
+## Aufgabe 1
+[Diagramm als PDF](submission/uebung2/SE1_Ubungsblatt2_Aufgabe1.pdf)
 
---------------------
+## Aufgabe 2
+**Anmerkung:** \
 
+[CardBoxTest.testShowContent()](src/test/java/org/hbrs/se1/ss24/uebung2/test/CardBoxTest.java) nutzt einen Output-Stream-Interceptor.
+
+---------------------------
 
 # Übung 1
 ## Anmerkungen
@@ -85,19 +102,3 @@ Tests durchführen zu können. Die Grundidee ist, nur einen Vertreter aus jeder 
 Die Klasse Client hat keine Ausgabewerte und wodurch Repräsentanten nicht einfach ermittelt/geprüft werden können.
 ## Link zur Excel-Tabelle
 [Excel-Tabelle](submission/uebung1/Excel_TestCase.pdf)
-
-# Übung 2
-## Aufgabe 1
-[Diagramm als PDF](submission/uebung2/SE1_Ubungsblatt2_Aufgabe1.pdf)
-
-## Aufgabe 2
-**Anmerkung:** \
-
-[CardBoxTest.testShowContent()](src/test/java/org/hbrs/se1/ss24/uebung2/test/CardBoxTest.java) nutzt einen Output-Stream-Interceptor.
-
---------------------------
-
-# Übung 3
-## Aufgabe 2
-### [Change Request 1]()#TODO Link einfügen
-Wir verwendeten das Singleton Design Pattern (Creational Pattern).
